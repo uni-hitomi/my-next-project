@@ -1,95 +1,89 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Image from "next/image";
+
+import NewsList from "./_components/NewsList";
+import ButtonLink from "./_components/ButtonLink";
+import { News } from "./_libs/microcms";
+
+const data: { contents: News[] } = {
+  contents: [
+    {
+      id: "1",
+      title: "1渋谷にオフィスを移転しました。",
+      category: {
+        name: "更新情報",
+      },
+      publishedAt: "2025/04/01",
+      createdAt: "2025/04/01",
+    },
+    {
+      id: "2",
+      title: "2渋谷にオフィスを移転しました。",
+      category: {
+        name: "更新情報",
+      },
+      publishedAt: "2025/04/01",
+      createdAt: "2025/04/01",
+    },
+    {
+      id: "3",
+      title: "3渋谷にオフィスを移転しました。",
+      category: {
+        name: "更新情報",
+      },
+      publishedAt: "2025/04/01",
+      createdAt: "2025/04/01",
+    },
+    {
+      id: "4",
+      title: "3渋谷にオフィスを移転しました。",
+      category: {
+        name: "更新情報",
+      },
+      publishedAt: "2025/04/01",
+      createdAt: "2025/04/01",
+    },
+    {
+      id: "5",
+      title: "3渋谷にオフィスを移転しました。",
+      category: {
+        name: "更新情報",
+      },
+      publishedAt: "2025/04/01",
+      createdAt: "2025/04/01",
+    },
+  ],
+};
 
 export default function Home() {
+  const sliceData = data.contents.slice(0, 3);
+  // const sliceData: News = [];
+  const name = "人見";
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <>
+      <div className={styles.mv}>
+        <div className={styles.mv_textBox}>
+          <h1 className={`${styles.title} text-white`} id={styles.title}>
+            {name}トップページテスト
+          </h1>
+          <p className={`${styles.text} text-white`}>ダミー</p>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <Image
+          className={styles.img1}
+          src="/top/mv.jpg"
+          alt="ダミー"
+          width={1876}
+          height={1144}
+        />
+      </div>
+
+      <section className={styles.news}>
+        <h2 className={`${styles.newsTitle} text-center`}>NEWS</h2>
+        <NewsList news={sliceData} />
+        <div className={styles.newsLink}>
+          <ButtonLink href="/news">もっとみる</ButtonLink>
+        </div>
+      </section>
+    </>
   );
 }

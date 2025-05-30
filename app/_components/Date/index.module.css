@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.newsList_day {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+}
