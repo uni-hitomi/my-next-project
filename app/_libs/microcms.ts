@@ -1,6 +1,6 @@
-export type Category {
+export type Category = {
   name: string;
-}
+};
 
 export type News = {
   id: string;
